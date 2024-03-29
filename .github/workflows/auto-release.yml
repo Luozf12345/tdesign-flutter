@@ -49,14 +49,43 @@ jobs:
           echo "github.event_name:${{github.event_name}}"
           echo "github.event.sender.login:${{github.event.sender.login}}"
           echo "github.event.issue.pull_request.url:${{github.event.issue.pull_request.url}}"
-
+          result=$(curl ${{github.event.issue.pull_request.url}} -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}")
+          headrefreg='"ref": "(release/[[:digit:]]{1,2}\.[[:digit:]]{1,2}\.[[:digit:]]{1,2})",'
+          if [[ $result =~ $headrefreg ]]
+          then
+            echo "属于 release pr 的 comment ${BASH_REMATCH[1]}" 
+          else
+            echo "不属于 release pr 的 comment" && exit 1
+          fi
+          echo "::set-output name=branch::${BASH_REMATCH[1]}"
+      # zsh $match[1]
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.comment.outputs.branch }}
       - name: Commit and push if needed
         env:
           BODY: ${{ github.event.comment.body }}
         run: |
           txt="测试文本txt测试文本"
-#          txt=$(cat CHANGELOG.md)
-          echo "${txt%%##*}$BODY${txt##*---}" 
+          echo "${txt%%##*}$BODY${txt##*---}"
+          git add .
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "chore: changelog's changes"
+          git push
+          echo "💾 pushed changelog's changes"
+#      - id: comment
+#        shell: bash
+#        run: |
+#
+#
+#      - name: Commit and push if needed
+#        env:
+#          BODY: ${{ github.event.comment.body }}
+#        run: |
+#          txt="测试文本txt测试文本"
+##          txt=$(cat CHANGELOG.md)
+#          echo "${txt%%##*}$BODY${txt##*---}"
 #          echo "${txt%%##*}$BODY${txt##*---}" > CHANGELOG.md
 #          git add .
 #          git config --local user.email "github-actions[bot]@users.noreply.github.com"
