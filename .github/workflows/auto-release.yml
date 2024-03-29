@@ -46,6 +46,7 @@ jobs:
       - id: comment
         shell: bash
         run: |
+#          result=$(curl ${{github.event.issue.pull_request.url}} -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}")
 #          echo "github event:${{github}}"
           echo "github.event_name:${{github.event_name}}"
 #          echo "github.event:${{github.event}}"
@@ -55,8 +56,6 @@ jobs:
           echo "github.event.sender.login:${{github.event.sender.login}}"
           echo "github.event.issue.pull_request.url:${{github.event.issue.pull_request.url}}"
           echo "token ${{ secrets.TD_FLUTTER }}"
-          result=$(curl ${{github.event.issue.pull_request.url}} -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}")
-          echo "refult: ${{result}}"
 #          echo "github.event.comment:${{github.event.comment}}"
 #          echo "github.event.comment.body:${{github.event.comment.body}}"
       #          result=$(curl ${{github.event.issue.pull_request.url}} -H "Authorization: token ${{ secrets.TD_FLUTTER }}")
