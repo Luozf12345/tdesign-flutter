@@ -53,7 +53,7 @@ jobs:
           echo "github.event.changes:${{github.event.changes}}"
           echo "github.event.pull_request:${{github.event.pull_request}}"
           echo "github.event.pull_request.url:${{github.event.pull_request.url}}"
-          result=$(curl ${{github.event.issue.pull_request.url}} -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}")
+          result=$(curl ${{github.event.pull_request.url}} -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}")
           headrefreg='"ref": "(release/[[:digit:]]{1,2}\.[[:digit:]]{1,2}\.[[:digit:]]{1,2})",'
           if [[ $result =~ $headrefreg ]]
           then
