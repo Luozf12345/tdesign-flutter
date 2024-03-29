@@ -46,15 +46,17 @@ jobs:
       - id: comment
         shell: bash
         run: |
-          echo "github event:${{github}}"
+#          echo "github event:${{github}}"
           echo "github.event_name:${{github.event_name}}"
-          echo "github.event:${{github.event}}"
-          echo "github.event.issue:${{github.event.issue}}"
-          echo "github.event.issue.pull_request:${{github.event.issue.pull_request}}"
-          echo "github.event.sender:${{github.event.sender}}"
+#          echo "github.event:${{github.event}}"
+#          echo "github.event.issue:${{github.event.issue}}"
+#          echo "github.event.issue.pull_request:${{github.event.issue.pull_request}}"
+#          echo "github.event.sender:${{github.event.sender}}"
           echo "github.event.sender.login:${{github.event.sender.login}}"
-          echo "github.event.comment:${{github.event.comment}}"
-          echo "github.event.comment.body:${{github.event.comment.body}}"
+          echo "github.event.issue.pull_request.url:${{github.event.issue.pull_request.url}}"
+          echo "token ${{ secrets.TD_FLUTTER }}"
+#          echo "github.event.comment:${{github.event.comment}}"
+#          echo "github.event.comment.body:${{github.event.comment.body}}"
       #          result=$(curl ${{github.event.issue.pull_request.url}} -H "Authorization: token ${{ secrets.TD_FLUTTER }}")
       #          headrefreg='"ref": "(release/[[:digit:]]{1,2}\.[[:digit:]]{1,2}\.[[:digit:]]{1,2})",'
       #          if [[ $result =~ $headrefreg ]]
@@ -72,8 +74,10 @@ jobs:
         env:
           BODY: ${{ github.event.comment.body }}
         run: |
-          txt=$(cat CHANGELOG.md)
-          echo "${txt%%##*}$BODY${txt##*---}" > CHANGELOG.md
+          txt="测试文本txt测试文本"
+#          txt=$(cat CHANGELOG.md)
+          echo "${txt%%##*}$BODY${txt##*---}" 
+#          echo "${txt%%##*}$BODY${txt##*---}" > CHANGELOG.md
           git add .
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
