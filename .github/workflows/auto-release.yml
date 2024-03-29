@@ -49,6 +49,7 @@ jobs:
           echo "github.event_name:${{github.event_name}}"
           echo "github.event.sender.login:${{github.event.sender.login}}"
           echo "github.event.issue.pull_request.url:${{github.event.issue.pull_request.url}}"
+
       - name: Commit and push if needed
         env:
           BODY: ${{ github.event.comment.body }}
