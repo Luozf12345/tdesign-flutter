@@ -51,8 +51,8 @@ jobs:
           echo "github.event.issue.pull_request.url:${{github.event.issue.pull_request.url}}"
 #          echo "token ${{ secrets.TD_FLUTTER }}"
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ steps.comment.outputs.branch }}
+#        with:
+#          ref: ${{ steps.comment.outputs.branch }}
       - name: Commit and push if needed
         env:
           BODY: ${{ github.event.comment.body }}
