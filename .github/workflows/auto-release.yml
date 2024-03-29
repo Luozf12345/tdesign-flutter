@@ -48,7 +48,11 @@ jobs:
         run: |
           echo "github.event_name:${{github.event_name}}"
           echo "github.event.sender.login:${{github.event.sender.login}}"
-          echo "github.event.issue.pull_request.url:${{github.event.issue.pull_request.url}}"
+          echo "github.event.action:${{github.event.action}}"
+          echo "github.event.number:${{github.event.number}}"
+          echo "github.event.changes:${{github.event.changes}}"
+          echo "github.event.pull_request:${{github.event.pull_request}}"
+          echo "github.event.pull_request.url:${{github.event.pull_request.url}}"
           result=$(curl ${{github.event.issue.pull_request.url}} -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}")
           headrefreg='"ref": "(release/[[:digit:]]{1,2}\.[[:digit:]]{1,2}\.[[:digit:]]{1,2})",'
           if [[ $result =~ $headrefreg ]]
