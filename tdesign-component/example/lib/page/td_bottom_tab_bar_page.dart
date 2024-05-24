@@ -28,134 +28,166 @@ class TDBottomTabBarPage extends StatelessWidget {
       size: 20,
       color: TDTheme.of(context).brandNormalColor,
     );
-    return MediaQuery(
-      // 去掉底部安全区域,保证示例展示正常
-      data: MediaQuery.of(context).copyWith(padding: EdgeInsets.zero),
-      child: ExamplePage(
-        title: tdTitle(context),
-        desc: '用于在不同功能模块之间进行快速切换，位于页面底部。',
-        exampleCodeGroup: 'bottomTabBar',
-        children: [
-          ExampleModule(
-            title: '组件类型',
-            children: [
-              ExampleItem(
-                  ignoreCode: true,
-                  desc: '纯文本标签栏', builder: (context){
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: CodeWrapper(builder: _textTypeTabBar),);
-              }),
-              ExampleItem(
-                  ignoreCode: true,builder: (context){
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: CodeWrapper(builder: _textTypeTabBar3tabs),);
-              }),
-              ExampleItem(
-                  ignoreCode: true, builder: (context){
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: CodeWrapper(builder: _textTypeTabBar4tabs),);
-              }),
-              ExampleItem(
-                  ignoreCode: true, builder: (context){
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: CodeWrapper(builder: _textTypeTabBar5tabs),);
-              }),
-              ExampleItem(
-                  ignoreCode: true,
-                  desc: '图标加文本标签栏', builder: (context){
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: CodeWrapper(builder: _iconTextTypeTabBar),);
-              }),
-              ExampleItem(
-                  ignoreCode: true, builder: (context){
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: CodeWrapper(builder: _iconTextTypeTabBar3tabs),);
-              }),
-              ExampleItem(
-                  ignoreCode: true, builder: (context){
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: CodeWrapper(builder: _iconTextTypeTabBar4tabs),);
-              }),
-              ExampleItem(
-                  ignoreCode: true, builder: (context){
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: CodeWrapper(builder: _iconTextTypeTabBar5tabs),);
-              }),
-              ExampleItem(
-                  ignoreCode: true,
-                  desc: '纯图标标签栏',builder: (context){
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: CodeWrapper(builder: _iconTypeTabBar),);
-              }),
-              ExampleItem(
-                  ignoreCode: true,builder: (context){
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: CodeWrapper(builder: _iconTypeTabBar3tabs),);
-              }),
-              ExampleItem(
-                  ignoreCode: true,builder: (context){
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: CodeWrapper(builder: _iconTypeTabBar4tabs),);
-              }),
-              ExampleItem(
-                  ignoreCode: true,builder: (context){
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: CodeWrapper(builder: _iconTypeTabBar5tabs),);
-              }),
-              ExampleItem(
-                desc: '双层级文本标签栏',
-                builder: _expansionPannelTypeTabBar,
-              ),
-            ],
-          ),
-          ExampleModule(title: '组件样式', children: [
-
+    return ExamplePage(
+      title: tdTitle(context),
+      desc: '用于在不同功能模块之间进行快速切换，位于页面底部。',
+      exampleCodeGroup: 'bottomTabBar',
+      children: [
+        ExampleModule(
+          title: '组件类型',
+          children: [
             ExampleItem(
                 ignoreCode: true,
-                desc: '弱选中标签栏',builder: (context){
+                desc: '纯文本标签栏', builder: (context){
               return Container(
                 padding: const EdgeInsets.only(bottom: 16),
-                child: CodeWrapper(builder: _weakSelectTextTabBar),);
+                child: CodeWrapper(builder: _textTypeTabBar),);
             }),
             ExampleItem(
                 ignoreCode: true,builder: (context){
               return Container(
                 padding: const EdgeInsets.only(bottom: 16),
-                child: CodeWrapper(builder: _weakSelectIconTabBar),);
+                child: CodeWrapper(builder: _textTypeTabBar3tabs),);
+            }),
+            ExampleItem(
+                ignoreCode: true, builder: (context){
+              return Container(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: CodeWrapper(builder: _textTypeTabBar4tabs),);
+            }),
+            ExampleItem(
+                ignoreCode: true, builder: (context){
+              return Container(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: CodeWrapper(builder: _textTypeTabBar5tabs),);
+            }),
+            ExampleItem(
+                ignoreCode: true,
+                desc: '设置文本标签栏背景',
+                builder: (context) {
+                  return Container(
+                    child:CodeWrapper(builder:_customBgTypeTabBar),
+                  );
+                }),
+            ExampleItem(
+                ignoreCode: true,
+                desc: '图标加文本标签栏', builder: (context){
+              return Container(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: CodeWrapper(builder: _iconTextTypeTabBar),);
+            }),
+            ExampleItem(
+                ignoreCode: true, builder: (context){
+              return Container(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: CodeWrapper(builder: _iconTextTypeTabBar3tabs),);
+            }),
+            ExampleItem(
+                ignoreCode: true, builder: (context){
+              return Container(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: CodeWrapper(builder: _iconTextTypeTabBar4tabs),);
+            }),
+            ExampleItem(
+                ignoreCode: true, builder: (context){
+              return Container(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: CodeWrapper(builder: _iconTextTypeTabBar5tabs),);
+            }),
+            ExampleItem(
+                ignoreCode: true,
+                desc: '纯图标标签栏',builder: (context){
+              return Container(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: CodeWrapper(builder: _iconTypeTabBar),);
             }),
             ExampleItem(
                 ignoreCode: true,builder: (context){
               return Container(
                 padding: const EdgeInsets.only(bottom: 16),
-                child: CodeWrapper(builder: _weakSelectIconTextTabBar),);
+                child: CodeWrapper(builder: _iconTypeTabBar3tabs),);
             }),
             ExampleItem(
-              desc: '悬浮胶囊标签栏',
-              builder: _capsuleTabBar,
+                ignoreCode: true,builder: (context){
+              return Container(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: CodeWrapper(builder: _iconTypeTabBar4tabs),);
+            }),
+            ExampleItem(
+                ignoreCode: true,builder: (context){
+              return Container(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: CodeWrapper(builder: _iconTypeTabBar5tabs),);
+            }),
+            ExampleItem(
+              desc: '双层级文本标签栏',
+              builder: _expansionPannelTypeTabBar,
             ),
-          ]),
-        ],
-        test: [
+          ],
+        ),
+        ExampleModule(title: '组件样式', children: [
+
           ExampleItem(
-              desc: '自定义上边线样式',
-              builder: _buildCustomTopStyle)
-        ],
-      ),
+              ignoreCode: true,
+              desc: '弱选中标签栏',builder: (context){
+            return Container(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: CodeWrapper(builder: _weakSelectTextTabBar),);
+          }),
+          ExampleItem(
+              ignoreCode: true,builder: (context){
+            return Container(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: CodeWrapper(builder: _weakSelectIconTabBar),);
+          }),
+          ExampleItem(
+              ignoreCode: true,builder: (context){
+            return Container(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: CodeWrapper(builder: _weakSelectIconTextTabBar),);
+          }),
+          ExampleItem(
+            desc: '悬浮胶囊标签栏',
+            builder: _capsuleTabBar,
+          ),
+        ]),
+      ],
+      test: [
+        ExampleItem(
+            desc: '自定义上边线样式',
+            builder: _buildCustomTopStyle),
+        ExampleItem(
+            desc: '自定义选择的背景颜色',
+            builder: _customBgColor),
+        ExampleItem(
+            desc: '设置文本标签栏背景',
+            builder:_customBgTypeTabBar),
+      ],
     );
   }
-
+  @Demo(group: 'bottomTabBar')
+  Widget _customBgTypeTabBar(BuildContext context){
+    return TDBottomTabBar(TDBottomTabBarBasicType.text,
+        backgroundColor: TDTheme.of(context).successColor6,
+        selectedBgColor: TDTheme.of(context).errorColor1,
+        unselectedBgColor: TDTheme.of(context).brandColor1,
+        useVerticalDivider: false,
+        navigationTabs: [
+          TDBottomTabBarTabConfig(
+            tabText: '标签',
+            onTap: () {
+              onTapTab(context, '标签1');
+            },
+          ),
+          TDBottomTabBarTabConfig(
+            tabText: '标签',
+             unselectTabTextStyle:TextStyle(color: TDTheme.of(context).fontGyColor1),
+            onTap: () {
+              onTapTab(context, '标签1');
+            },
+          ),
+        ]);
+  }
   @Demo(group: 'bottomTabBar')
   Widget _textTypeTabBar(BuildContext context) {
     return TDBottomTabBar(TDBottomTabBarBasicType.text,
@@ -204,7 +236,8 @@ class TDBottomTabBarPage extends StatelessWidget {
 
   @Demo(group: 'bottomTabBar')
   Widget _textTypeTabBar4tabs(BuildContext context) {
-    return TDBottomTabBar(TDBottomTabBarBasicType.text,
+    return TDBottomTabBar(
+        TDBottomTabBarBasicType.text,
         useVerticalDivider: false,
         navigationTabs: [
           TDBottomTabBarTabConfig(
@@ -463,7 +496,6 @@ class TDBottomTabBarPage extends StatelessWidget {
         useVerticalDivider: true,
         navigationTabs: [
           TDBottomTabBarTabConfig(
-
             selectedIcon: _selectedIcon,
             unselectedIcon: _unSelectedIcon,
               onTap: () {
@@ -788,5 +820,50 @@ class TDBottomTabBarPage extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  @Demo(group: 'bottomTabBar')
+  Widget _customBgColor(BuildContext context) {
+    return TDBottomTabBar(TDBottomTabBarBasicType.iconText,
+        useVerticalDivider: false,
+        selectedBgColor: TDTheme.of(context).errorColor3,
+        unselectedBgColor: TDTheme.of(context).grayColor3,
+        navigationTabs: [
+          TDBottomTabBarTabConfig( tabText: '标签',
+            selectedIcon: _selectedIcon,
+            unselectedIcon: _unSelectedIcon,
+            onTap: () {
+              onTapTab(context, '标签1');
+            },
+          ),
+          TDBottomTabBarTabConfig( tabText: '标签',
+            selectedIcon: _selectedIcon,
+            unselectedIcon: _unSelectedIcon,
+            onTap: () {
+              onTapTab(context, '标签2');
+            },
+          ),
+          TDBottomTabBarTabConfig( tabText: '标签',
+            selectedIcon: _selectedIcon,
+            unselectedIcon: _unSelectedIcon,
+            onTap: () {
+              onTapTab(context, '标签2');
+            },
+          ),
+          TDBottomTabBarTabConfig( tabText: '标签',
+            selectedIcon: _selectedIcon,
+            unselectedIcon: _unSelectedIcon,
+            onTap: () {
+              onTapTab(context, '标签2');
+            },
+          ),
+          TDBottomTabBarTabConfig( tabText: '标签',
+            selectedIcon: _selectedIcon,
+            unselectedIcon: _unSelectedIcon,
+            onTap: () {
+              onTapTab(context, '标签2');
+            },
+          ),
+        ]);
   }
 }
