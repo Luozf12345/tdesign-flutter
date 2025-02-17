@@ -1,6 +1,21 @@
 # script.py
 import os
 from openai import OpenAI
+import json
+
+# 获取事件数据文件路径
+event_path = os.getenv('GITHUB_EVENT_PATH')
+
+if not event_path:
+    raise ValueError("GITHUB_EVENT_PATH 环境变量未找到")
+
+# 读取并解析 JSON 数据
+with open(event_path, 'r') as f:
+    event_data = json.load(f)
+
+# 提取评论内容
+comment_body = event_data.get('comment', {}).get('body')
+
 
 # gets API Key from environment variable OPENAI_API_KEY
 client = OpenAI(
@@ -16,10 +31,7 @@ completion = client.chat.completions.create(
         {
             "role": "user",
             "content": """请帮我把以下中文文档翻译成英文,并以markdown格式输出:
-## 🌈 0.1.8 `2024-12-30` 
-### 🚀 Features
-- `TDUpload`: 新增Upload组件 @TingShine ([#405](https://github.com/Tencent/tdesign-flutter/pull/405))
-- `SearchBar`: 增加键盘动作类型 @ccXxx1aoBai ([#366](https://github.com/Tencent/tdesign-flutter/pull/366))""",
+${comment_body}""",
         },
     ],
 )
