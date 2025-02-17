@@ -17,22 +17,24 @@ with open(event_path, 'r') as f:
 comment_body = event_data.get('comment', {}).get('body')
 
 
-# gets API Key from environment variable OPENAI_API_KEY
-client = OpenAI(
-    api_key=os.getenv('HUNYUAN_API_KEY'), # 混元 APIKey
-    base_url="https://api.hunyuan.cloud.tencent.com/v1", # 混元 endpoint
-)
-
 # Non-streaming:
-print("----- standard request:{comment_body} -----")
-completion = client.chat.completions.create(
-    model="hunyuan-turbo",
-    messages=[
-        {
-            "role": "user",
-            "content": """请帮我把以下中文文档翻译成英文,并以markdown格式输出:
-{comment_body}""",
-        },
-    ],
-)
-print(completion.choices[0].message.content)
+print("----- standard event_data:",event_data)
+print("----- standard comment_body:",comment_body)
+# print("----- standard request:",comment_body)
+# gets API Key from environment variable OPENAI_API_KEY
+# client = OpenAI(
+#     api_key=os.getenv('HUNYUAN_API_KEY'), # 混元 APIKey
+#     base_url="https://api.hunyuan.cloud.tencent.com/v1", # 混元 endpoint
+# )
+#
+# completion = client.chat.completions.create(
+#     model="hunyuan-turbo",
+#     messages=[
+#         {
+#             "role": "user",
+#             "content": """请帮我把以下中文文档翻译成英文,并以markdown格式输出:
+# {comment_body}""",
+#         },
+#     ],
+# )
+# print(completion.choices[0].message.content)
