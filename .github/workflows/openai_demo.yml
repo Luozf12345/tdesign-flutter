@@ -24,18 +24,5 @@ jobs:
 
       - name: Run Python script
         env:
-          OPENAI_API_KEY: ${{ secrets.HUNYUAN_API_KEY }}  # 从 Secrets 读取 API 密钥
-        run: |
-          python -c "
-  import openai
-  import os
-  
-  openai.api_key = os.getenv('OPENAI_API_KEY')
-  
-  response = openai.ChatCompletion.create(
-  model='gpt-3.5-turbo',
-messages=[{'role': 'user', 'content': 'Hello, GitHub Actions!'}]
-  )
-  
-  print(response.choices[0].message['content'])
-  "
+          HUNYUAN_API_KEY: ${{ secrets.HUNYUAN_API_KEY }}
+        run: python script.py  # 更清晰且避免语法问题
