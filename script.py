@@ -27,18 +27,13 @@ client = OpenAI(
     base_url="https://api.hunyuan.cloud.tencent.com/v1", # 混元 endpoint
 )
 
-content = """请帮我把以下中文文档翻译成英文,并以markdown格式输出:
-{comment_body}"""
-
-
-print("----- standard request, content:",content)
-
 completion = client.chat.completions.create(
     model="hunyuan-turbo",
     messages=[
         {
             "role": "user",
-            "content": {content},
+            "content": f"""请帮我把以下中文文档翻译成英文,并以markdown格式输出:
+{comment_body}""",
         },
     ],
 )
