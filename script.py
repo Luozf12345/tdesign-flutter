@@ -24,14 +24,14 @@ client = OpenAI(
 )
 
 # Non-streaming:
-print("----- standard request -----")
+print("----- standard request:{comment_body} -----")
 completion = client.chat.completions.create(
     model="hunyuan-turbo",
     messages=[
         {
             "role": "user",
             "content": """请帮我把以下中文文档翻译成英文,并以markdown格式输出:
-${comment_body}""",
+{comment_body}""",
         },
     ],
 )
