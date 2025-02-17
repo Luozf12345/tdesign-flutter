@@ -21,7 +21,7 @@ comment_body = event_data.get('comment', {}).get('body')
 # print("----- standard event_data:",event_data)
 # print("----- standard comment_body:",comment_body)
 print("----- standard request, comment_body:",comment_body)
-gets API Key from environment variable OPENAI_API_KEY
+# gets API Key from environment variable OPENAI_API_KEY
 client = OpenAI(
     api_key=os.getenv('HUNYUAN_API_KEY'), # 混元 APIKey
     base_url="https://api.hunyuan.cloud.tencent.com/v1", # 混元 endpoint
