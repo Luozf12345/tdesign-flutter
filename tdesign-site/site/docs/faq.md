@@ -23,8 +23,8 @@ TDesignFlutter目前未内置暗色模式，请使用“自定义主题”方式
 如果有新增组件的想法，可以提issue，或者在已有issue补充。如果想提交代码，开发实现，可以拉负责人一起评估。
 
 ## Input相关
-●自定义高度： TDInput没有自带height参数，可以通过外部嵌套SizeBox来修改高度。不过修改高度后，内部相关高度不会等比缩放，需要业务自己同步修改。
-●输入正则：Input的FilteringTextInputFormatter.allow(RegExp(r''))的正则是匹配即将输入的单个字符串的，不是匹配已输入的整个字符串的，按字符串匹配写的正则可能导致无法输入。
+- 自定义高度： TDInput没有自带height参数，可以通过外部嵌套SizeBox来修改高度。不过修改高度后，内部相关高度不会等比缩放，需要业务自己同步修改。
+- 输入正则：Input的FilteringTextInputFormatter.allow(RegExp(r''))的正则是匹配即将输入的单个字符串的，不是匹配已输入的整个字符串的，按字符串匹配写的正则可能导致无法输入。
 
 ## TDImage换成问题
 TDImage基于系统Image组件封装，未单独处理缓存逻辑，使用的是系统组件自带的缓存。
